@@ -2,21 +2,22 @@ import React from 'react';
 import Button from './Button';
 import { BUTTON_VALUES } from './consts';
 
-const Buttons = ({ viewPaneName }) => {
+const Buttons = ({ viewPaneRef }) => {
+    
     return BUTTON_VALUES.map(({ command, className }, i) => (
         <Button
             command={command} 
             className={className}
             key={`className-${i}`}
-            viewPaneName={viewPaneName}
+            viewPaneRef={viewPaneRef}
         />
     ));
 };
 
-const MenuBar = ({ viewPaneName }) => (
+const MenuBar = ({ viewPaneRef }) => (
     <div>
         <Buttons 
-            viewPaneName={viewPaneName}
+            viewPaneRef={viewPaneRef}
         />
     </div>
 );

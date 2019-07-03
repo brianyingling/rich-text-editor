@@ -1,25 +1,21 @@
-import React, { 
-    // useEffect, 
-    // useRef
-} from 'react';
+import React, { useEffect } from 'react';
 
 const style = {
-    width: '1000px',
-    height: '500px',
-    'margin-top': '1rem',
-    // background: 'gray'
+    minHeight: '500px',
+    marginTop: '1rem',
+    width: '100%',
 }
 
-const ViewPane = ({ name }) => {
-    // const ref = useRef(null);
-    
-    // useEffect(() => {
-    //     // ref.current.contentWindow.document.designMode = 'On';
-    // }, [ref]);
+const ViewPane = ({ onRef }) => {
+
+    useEffect(() => {
+        onRef && onRef.current.focus();
+    }, [onRef]);
 
     return (
         <div 
-            contentEditable 
+            contentEditable
+            ref={onRef} 
             style={style} 
         />
     );

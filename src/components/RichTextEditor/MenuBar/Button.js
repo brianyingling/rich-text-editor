@@ -1,18 +1,24 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
-const executeCommand = (command, viewPaneName) => {
+const executeCommand = (command, viewPaneRef) => {
     document.execCommand(command, false, null);
+    viewPaneRef.current.focus();
 };
 
 const Button = ({
     className,
     command,
-    viewPaneName,
+    viewPaneRef,
 }) => {
+    const onClick = useCallback(
+        () => executeCommand(command, viewPaneRef),
+        [command, viewPaneRef]
+    );
+
     return (
-        <button 
+        <button
             command={command} 
-            onClick={() => executeCommand(command, viewPaneName)}
+            onClick={onClick}
         >
             <i className={className}/>
         </button>
