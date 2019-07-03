@@ -3,7 +3,6 @@ import Button from './Button';
 import { BUTTON_VALUES } from './consts';
 
 const Buttons = ({ viewPaneRef }) => {
-    
     return BUTTON_VALUES.map(({ command, className }, i) => (
         <Button
             command={command} 
